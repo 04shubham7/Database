@@ -1,5 +1,6 @@
 package com.example.database
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -42,5 +43,10 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+        binding.textView2.setOnClickListener {
+            val intent= Intent(this,signinActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

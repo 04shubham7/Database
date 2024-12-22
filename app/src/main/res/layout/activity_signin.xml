@@ -7,72 +7,51 @@
     android:layout_height="match_parent"
     android:background="@drawable/sign_in"
 
-    tools:context=".signinActivity"
-    >
+    tools:context=".signinActivity">
 
-
-    <TextView
-        android:id="@+id/tv1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="cursive"
-        android:text="Name"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.605"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.048" />
 
     <com.google.android.material.textfield.TextInputLayout
+
         android:id="@+id/textInputLayout2"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv1"
         android:layout_gravity="center"
-        android:layout_margin="0dp"
-        app:boxStrokeColor="#87FFEE"
-        app:hintTextColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv1"
-        app:layout_constraintVertical_bias="0.32999998">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/uname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/baseline_person_pin_24"
-            android:hint="   Enter your Username"
-            tools:layout_editor_absoluteX="41dp"
-            tools:layout_editor_absoluteY="238dp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="15dp"
         app:boxStrokeColor="#1C312F"
         app:endIconMode="password_toggle"
         app:hintTextColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-        app:layout_constraintVertical_bias="0.050000012"
+        app:layout_constraintTop_toTopOf="parent"
         app:startIconDrawable="@drawable/baseline_lock_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etpass"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="54dp"
             android:hint="         Enter your Password" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:boxStrokeColor="#1C312F"
+
+        app:hintTextColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.88"
+        app:startIconDrawable="@drawable/baseline_person_pin_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="         Enter your Username" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -88,9 +67,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        app:layout_constraintVertical_bias="0.26" />
 
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        app:layout_constraintVertical_bias="0.18" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

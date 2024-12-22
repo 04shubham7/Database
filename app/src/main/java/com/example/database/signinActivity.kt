@@ -1,5 +1,6 @@
 package com.example.database
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -14,6 +15,14 @@ import com.google.firebase.database.FirebaseDatabase
 class signinActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySigninBinding
     lateinit var databaseReference: DatabaseReference
+
+    companion object{
+        const val KEY1="com.example.database.signinActivity.mail"
+        const val KEY2="com.example.database.signinActivity.name"
+        const val KEY3="com.example.database.signinActivity.username"
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivitySigninBinding.inflate(layoutInflater)
@@ -26,7 +35,7 @@ class signinActivity : AppCompatActivity() {
         }
         binding.signin.setOnClickListener {
 //            Take ref till node "Users"
-            val uname = binding.uname.text.toString()
+            val uname = binding.etname.text.toString()
             val pass = binding.etpass.text.toString()
             if(uname.isNotEmpty() && pass.isNotEmpty()){
                 readData(uname,pass)
@@ -40,7 +49,7 @@ class signinActivity : AppCompatActivity() {
     private fun readData(uname: String, pass: String) {
             databaseReference = FirebaseDatabase.getInstance().getReference("Users")
 
-            databaseReference.child(uname).child(pass).get().addOnSuccessListener {
+            databaseReference.child(uname).get().addOnSuccessListener {
 //                if user exist or not
                 if(it.exists()){
 //                    welcome your User in your app and add intent
@@ -49,16 +58,20 @@ class signinActivity : AppCompatActivity() {
                     val username=it.child("username").value
                     val password=it.child("password").value
                     Toast.makeText(this@signinActivity,"Welcome $name",Toast.LENGTH_LONG).show()
-                    binding.tv1.text=name.toString()
+                    val intent=Intent(this@signinActivity,HomeActivity::class.java)
+                    startActivity(intent)
+                    intent.putExtra(KEY2,name.toString())
+                    intent.putExtra(KEY1,email.toString())
+                    intent.putExtra(KEY3,username.toString())
 
-                    binding.uname.text?.clear()
-                    binding.etpass.text?.clear()
+
+
                 }else{
                     Toast.makeText(this@signinActivity,"User does not exist",Toast.LENGTH_LONG).show()
                 }
 
             }.addOnFailureListener {
-                Toast.makeText(this@signinActivity,"FAILED",Toast.LENGTH_LONG).show()
+                Toast.makeText(this@signinActivity,"FAILED,Error in Database",Toast.LENGTH_LONG).show()
             }
     }
 }
