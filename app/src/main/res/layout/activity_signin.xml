@@ -39,10 +39,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv1"
-        app:layout_constraintVertical_bias="0.26">
+        app:layout_constraintVertical_bias="0.32999998">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etuname"
+            android:id="@+id/uname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/baseline_person_pin_24"
@@ -76,13 +76,13 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnsignup"
+        android:id="@+id/signin"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:backgroundTint="#2AFFE8"
         android:fontFamily="sans-serif-condensed"
-        android:text="Sign Up!"
+        android:text="Sign In!"
         android:textColor="#000000"
         android:textSize="20dp"
         android:textStyle="bold"
